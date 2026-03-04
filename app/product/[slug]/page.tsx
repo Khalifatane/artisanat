@@ -4,8 +4,10 @@ import { AddToCartButton } from "@/app/product/[slug]/add-to-cart-button";
 import { AddToWishlistButton } from "@/app/product/[slug]/add-to-wishlist-button";
 import { ImageGallery } from "@/app/product/[slug]/image-gallery";
 import { ProductFeatures } from "@/app/product/[slug]/product-features";
+import { InteractiveRating } from "@/components/ui/interactive-rating";
 import { commerce } from "@/lib/commerce";
 import { CURRENCY, LOCALE } from "@/lib/constants";
+import { generateFakeRating } from "@/lib/fake-rating";
 import { formatMoney } from "@/lib/money";
 
 export default async function ProductPage(props: { params: Promise<{ slug: string }> }) {
@@ -42,6 +44,8 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 			? `${formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE })} - ${formatMoney({ amount: maxPrice, currency: CURRENCY, locale: LOCALE })}`
 			: formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE });
 
+	const { rating, reviewCount } = generateFakeRating(product.id);
+
 	const allImages = [
 		...product.images,
 		...product.variants.flatMap((v) => v.images).filter((img) => !product.images.includes(img)),
@@ -60,6 +64,11 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 						<h1 className="text-4xl font-medium tracking-tight text-foreground lg:text-5xl text-balance">
 							{product.name}
 						</h1>
+						<InteractiveRating
+							productId={product.id}
+							defaultRating={rating}
+							defaultReviewCount={reviewCount}
+						/>
 						<p className="text-2xl font-semibold tracking-tight">{priceDisplay}</p>
 						{product.summary && <p className="text-muted-foreground leading-relaxed">{product.summary}</p>}
 					</div>

@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { commerce, type Collection, type Product } from "@/lib/commerce";
 import { CURRENCY, LOCALE } from "@/lib/constants";
+import { generateFakeRating } from "@/lib/fake-rating";
 import { formatMoney } from "@/lib/money";
 import { YNSImage } from "@/lib/yns-image";
 import { YnsLink } from "../yns-link";
@@ -77,6 +78,7 @@ export async function ProductGrid({
 					];
 					const primaryImage = allImages[0];
 					const secondaryImage = allImages[1];
+					const { rating, reviewCount } = generateFakeRating(product.id);
 
 					return (
 						<YnsLink prefetch={"eager"} key={product.id} href={`/product/${product.slug}`} className="group">
@@ -114,6 +116,9 @@ export async function ProductGrid({
 							<div className="space-y-1">
 								<h3 className="text-base font-medium text-foreground">{product.name}</h3>
 								<p className="text-base font-semibold text-foreground">{priceDisplay}</p>
+								<p className="text-xs text-muted-foreground">
+									Rating {rating} ({reviewCount})
+								</p>
 							</div>
 						</YnsLink>
 					);
