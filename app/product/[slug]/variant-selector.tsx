@@ -49,13 +49,13 @@ export function VariantSelector({ variants, value, onChange }: VariantSelectorPr
 	};
 
 	return (
-		<div className="space-y-4">
+		<div className="grid gap-4 md:grid-cols-2">
 			<div className="space-y-2">
-				<label className="text-sm font-medium">Size</label>
+				<label className="text-sm font-semibold">Size</label>
 				<select
 					value={value.size ?? ""}
 					onChange={(event) => handleSizeChange(event.target.value)}
-					className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+					className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
 				>
 					{sizes.map((size) => (
 						<option key={size} value={size} disabled={isSizeDisabled(size)}>
@@ -66,11 +66,11 @@ export function VariantSelector({ variants, value, onChange }: VariantSelectorPr
 			</div>
 
 			<div className="space-y-2">
-				<label className="text-sm font-medium">Color</label>
+				<label className="text-sm font-semibold">Color</label>
 				<select
 					value={value.color ?? ""}
 					onChange={(event) => handleColorChange(event.target.value)}
-					className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+					className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
 				>
 					{colors.map((color) => (
 						<option key={color} value={color} disabled={isColorDisabled(color)}>

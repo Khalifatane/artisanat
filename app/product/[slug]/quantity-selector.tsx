@@ -9,6 +9,7 @@ type QuantitySelectorProps = {
 	min?: number;
 	max?: number;
 	disabled?: boolean;
+	showLabel?: boolean;
 };
 
 export function QuantitySelector({
@@ -17,10 +18,11 @@ export function QuantitySelector({
 	min = 1,
 	max = 99,
 	disabled = false,
+	showLabel = true,
 }: QuantitySelectorProps) {
 	return (
 		<div>
-			<span className="mb-3 block text-sm font-medium">Quantity</span>
+			{showLabel && <span className="mb-3 block text-sm font-medium">Quantity</span>}
 			<div className="inline-flex items-center rounded-lg border border-border">
 				<Button
 					variant="ghost"

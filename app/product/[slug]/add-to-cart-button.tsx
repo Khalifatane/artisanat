@@ -76,38 +76,47 @@ export function AddToCartButton({ variants, product }: AddToCartButtonProps) {
 	};
 
 	return (
-		<div className="space-y-8">
+		<div className="space-y-6">
 			<VariantSelector variants={variants} value={selection} onChange={setSelection} />
 
-			{selectedVariant && (
-				<div className="text-sm text-muted-foreground">
-					<span className="font-medium text-foreground">Stock:</span>{" "}
-					{selectedVariant.stock > 0 ? selectedVariant.stock : "Out of stock"}
+			<div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border px-4 py-3">
+				<div className="flex items-center gap-3 text-sm">
+					<span className="font-semibold text-foreground">Stock</span>
+					<span className="font-medium text-foreground">
+						{selectedVariant && selectedVariant.stock > 0 ? selectedVariant.stock : "Out of stock"}
+					</span>
 				</div>
-			)}
+				<div className="flex items-center gap-3">
+					<span className="text-sm font-semibold">Quantity</span>
+					<QuantitySelector
+						quantity={quantity}
+						onQuantityChange={setQuantity}
+						max={maxQuantity}
+						disabled={isPending || isOutOfStock}
+						showLabel={false}
+					/>
+				</div>
+			</div>
 
-			<QuantitySelector
-				quantity={quantity}
-				onQuantityChange={setQuantity}
-				max={maxQuantity}
-				disabled={isPending || isOutOfStock}
-			/>
-
-			{totalPrice && (
-				<p className="text-sm text-muted-foreground">
-					Total: {formatMoney({ amount: totalPrice, currency: CURRENCY, locale: LOCALE })}
-				</p>
-			)}
-
-			<form onSubmit={handleSubmit}>
-				<button
-					type="submit"
-					disabled={isPending || isOutOfStock}
-					className="w-full h-14 bg-foreground text-primary-foreground py-4 px-8 rounded-full text-base font-medium tracking-wide hover:bg-foreground/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-				>
-					Add to Cart
-				</button>
-			</form>
+			<div className="flex items-center justify-between rounded-lg border border-border px-4 py-3">
+				<div>
+					<p className="text-xs text-muted-foreground">Total</p>
+					<p className="text-base font-semibold text-foreground">
+						{totalPrice
+							? formatMoney({ amount: totalPrice, currency: CURRENCY, locale: LOCALE })
+							: formatMoney({ amount: BigInt(0), currency: CURRENCY, locale: LOCALE })}
+					</p>
+				</div>
+				<form onSubmit={handleSubmit}>
+					<button
+						type="submit"
+						disabled={isPending || isOutOfStock}
+						className="h-12 rounded-full bg-foreground px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-foreground/90 disabled:opacity-50 disabled:cursor-not-allowed"
+					>
+						Add to Cart
+					</button>
+				</form>
+			</div>
 
 			<TrustBadges />
 		</div>
