@@ -1,2 +1,2 @@
-export const CURRENCY = "NGN" as const;
-export const LOCALE = "en-NG" as const;
+export const CURRENCY = "XOF" as const;
+export const LOCALE = "fr-SN" as const;
