@@ -92,7 +92,7 @@ export function CartItem({ item }: CartItemProps) {
 
 				<div className="text-xs text-muted-foreground space-y-1">
 					<p>
-						Size: {productVariant.size} • Color: {productVariant.color}
+						Taille: {productVariant.size} • Couleur: {productVariant.color}
 					</p>
 					<p>
 						Stock: {productVariant.stock > 0 ? productVariant.stock : "Out of stock"}
@@ -115,7 +115,7 @@ export function CartItem({ item }: CartItemProps) {
 						disabled={!canIncrement}
 						className="mt-1 inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-medium text-foreground transition-colors hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed"
 					>
-						Add to Cart
+						Ajouter au panier
 					</button>
 				</div>
 

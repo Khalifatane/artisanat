@@ -24,9 +24,9 @@ export function WishlistDrawer({ open, onOpenChange }: Props) {
 				<SheetHeader className="border-b border-border pb-4">
 					<SheetTitle className="flex items-center gap-2">
 						<Heart className="h-5 w-5" />
-						Wishlist
+						Liste de souhaits
 						{items.length > 0 && (
-							<span className="text-sm font-normal text-muted-foreground">({items.length} items)</span>
+							<span className="text-sm font-normal text-muted-foreground">({items.length} articles)</span>
 						)}
 					</SheetTitle>
 				</SheetHeader>
@@ -37,11 +37,11 @@ export function WishlistDrawer({ open, onOpenChange }: Props) {
 							<Heart className="h-10 w-10 text-muted-foreground" />
 						</div>
 						<div className="text-center">
-							<p className="text-lg font-medium">Your Wishlist is empty</p>
-							<p className="text-sm text-muted-foreground mt-1">Save products to find them here</p>
+							<p className="text-lg font-medium">Votre liste de souhaits est vide</p>
+							<p className="text-sm text-muted-foreground mt-1">Enregistrez des produits pour les retrouver ici</p>
 						</div>
 						<Button variant="outline" onClick={() => onOpenChange(false)}>
-							Continue shopping
+							Continuer vos achats
 						</Button>
 					</div>
 				) : (
@@ -82,7 +82,7 @@ export function WishlistDrawer({ open, onOpenChange }: Props) {
 													onClick={() => removeFromWishlist(item.id)}
 													className="shrink-0 text-xs text-red-500 hover:text-red-600 transition-colors"
 												>
-													Remove
+													Retirer
 												</button>
 											</div>
 
@@ -105,7 +105,7 @@ export function WishlistDrawer({ open, onOpenChange }: Props) {
 							<div className="w-full space-y-4">
 								<Button asChild className="w-full h-12 text-base font-medium">
 									<YnsLink prefetch={false} href="/wishlist" onClick={() => onOpenChange(false)}>
-										View Wishlist
+										Voir la liste de souhaits
 									</YnsLink>
 								</Button>
 								<button
@@ -113,7 +113,7 @@ export function WishlistDrawer({ open, onOpenChange }: Props) {
 									onClick={() => onOpenChange(false)}
 									className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
 								>
-									Continue shopping
+									Continuer vos achats
 								</button>
 							</div>
 						</SheetFooter>

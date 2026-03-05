@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Your Next Store",
+	title: "Votre prochaine boutique",
 	description: "Your next e-commerce store",
 };
 
@@ -45,28 +45,28 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 	return (
 		<CartProvider initialCart={cart} initialCartId={cartId}>
 			<WishlistProvider>
-			<div className="flex min-h-screen flex-col">
-				<header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-						<div className="flex items-center justify-between h-16">
-							<div className="flex items-center gap-8">
-								<YnsLink prefetch={"eager"} href="/" className="text-xl font-bold">
-									Your Next Store
-								</YnsLink>
-								<Navbar />
-							</div>
-							<div className="flex items-center gap-2">
-								<WishlistTrigger />
-								<CartButton />
+				<div className="flex min-h-screen flex-col">
+					<header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+						<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+							<div className="flex items-center justify-between h-16">
+								<div className="flex items-center gap-8">
+									<YnsLink prefetch={"eager"} href="/" className="text-xl font-bold">
+										Ndallu Ngaye
+									</YnsLink>
+									<Navbar />
+								</div>
+								<div className="flex items-center gap-2">
+									<WishlistTrigger />
+									<CartButton />
+								</div>
 							</div>
 						</div>
-					</div>
-				</header>
-				<div className="flex-1">{children}</div>
-				<Footer />
-				<ReferralBadge />
-			</div>
-			<CartSidebar />
+					</header>
+					<div className="flex-1">{children}</div>
+					<Footer />
+					<ReferralBadge />
+				</div>
+				<CartSidebar />
 			</WishlistProvider>
 		</CartProvider>
 	);

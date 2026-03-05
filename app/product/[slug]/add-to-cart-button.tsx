@@ -112,7 +112,7 @@ export function AddToCartButton({ variants, product }: AddToCartButtonProps) {
 						disabled={isPending || isOutOfStock}
 						className="h-12 w-full rounded-xl bg-foreground text-base font-semibold text-primary-foreground transition-colors hover:bg-foreground/90 disabled:opacity-50 disabled:cursor-not-allowed"
 					>
-						Add to Cart
+						Ajouter au panier
 					</button>
 				</form>
 			</div>

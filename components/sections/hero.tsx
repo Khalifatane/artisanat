@@ -9,11 +9,10 @@ export function Hero() {
 				<div className="py-16 sm:py-20 lg:py-28 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] items-center">
 					<div className="max-w-2xl">
 						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-foreground">
-							Curated essentials for modern living
+							Essentiels soigneusement sélectionnés pour la vie moderne
 						</h1>
 						<p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed">
-							Discover our thoughtfully designed collection of premium products, crafted with care and built
-							to last.
+							Découvrez notre collection de produits haut de gamme, conçus avec soin et faits pour durer.
 						</p>
 						<div className="mt-10 flex flex-col sm:flex-row gap-4">
 							<YnsLink
@@ -21,7 +20,7 @@ export function Hero() {
 								href="#products"
 								className="inline-flex items-center justify-center gap-2 h-12 px-8 bg-foreground text-primary-foreground rounded-full text-base font-medium hover:bg-foreground/90 transition-colors"
 							>
-								Shop Collection
+								Voir la collection
 								<ArrowRightIcon className="h-4 w-4" />
 							</YnsLink>
 							<YnsLink
@@ -29,7 +28,7 @@ export function Hero() {
 								href="#about"
 								className="inline-flex items-center justify-center gap-2 h-12 px-8 border border-border rounded-full text-base font-medium hover:bg-secondary transition-colors"
 							>
-								Our Story
+								Notre histoire
 							</YnsLink>
 						</div>
 					</div>

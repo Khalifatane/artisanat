@@ -55,7 +55,7 @@ export function CheckoutClient() {
 			"Items:",
 			...items.map((item) => `- ${item.quantity}x ${item.productVariant.product.name}`),
 			"",
-			`Subtotal: ${formattedSubtotal}`,
+			`Sous-total: ${formattedSubtotal}`,
 		];
 
 		if (shipping) {
@@ -85,7 +85,7 @@ export function CheckoutClient() {
 	return (
 		<div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
 			<div>
-				<h1 className="text-3xl font-semibold tracking-tight">Checkout</h1>
+				<h1 className="text-3xl font-semibold tracking-tight">Paiement</h1>
 				<p className="text-sm text-muted-foreground mt-2">
 					Step {["cart", "customer", "shipping", "payment"].indexOf(step) + 1} of 4
 				</p>
@@ -114,7 +114,7 @@ export function CheckoutClient() {
 						))}
 					</div>
 					<div className="flex items-center justify-between">
-						<p className="text-sm text-muted-foreground">Subtotal</p>
+						<p className="text-sm text-muted-foreground">Sous-total</p>
 						<p className="text-lg font-semibold">{formattedSubtotal}</p>
 					</div>
 					<Button type="button" onClick={nextStep} disabled={!hasItems}>
@@ -138,7 +138,7 @@ export function CheckoutClient() {
 						</div>
 						<div className="flex items-center gap-3">
 							<Button type="button" variant="outline" onClick={prevStep}>
-								Back
+								Retour
 							</Button>
 							<Button type="submit">Continue</Button>
 						</div>
@@ -222,7 +222,7 @@ export function CheckoutClient() {
 						</div>
 						<div className="flex items-center gap-3">
 							<Button type="button" variant="outline" onClick={prevStep}>
-								Back
+								Retour
 							</Button>
 							<Button type="submit">Continue</Button>
 						</div>
@@ -233,13 +233,13 @@ export function CheckoutClient() {
 			{step === "payment" && (
 				<section className="space-y-6">
 					<div className="border border-border rounded-lg p-4">
-						<p className="text-sm text-muted-foreground">Subtotal</p>
+						<p className="text-sm text-muted-foreground">Sous-total</p>
 						<p className="text-2xl font-semibold">{formattedSubtotal}</p>
 					</div>
 
 					<div className="space-y-4">
 						<div className="space-y-2">
-							<p className="text-sm font-medium">Payment Method</p>
+							<p className="text-sm font-medium">Mode de paiement</p>
 							<label className="flex items-center gap-2 text-sm">
 								<input
 									type="radio"
@@ -248,7 +248,7 @@ export function CheckoutClient() {
 									checked={paymentMethod === "cod"}
 									onChange={() => setPaymentMethod("cod")}
 								/>
-								Payer apres livraison
+								Payer apr?s livraison
 							</label>
 							<label className="flex items-center gap-2 text-sm">
 								<input
@@ -264,7 +264,7 @@ export function CheckoutClient() {
 
 						<div className="flex items-center gap-3">
 							<Button type="button" variant="outline" onClick={prevStep}>
-								Back
+								Retour
 							</Button>
 							{paymentMethod === "cod" ? (
 								<Button
@@ -272,7 +272,7 @@ export function CheckoutClient() {
 									disabled={!customer?.email || !shipping || !hasItems}
 									onClick={() => handleWhatsAppRedirect({ paid: false })}
 								>
-									Checkout WhatsApp
+									Paiement WhatsApp
 								</Button>
 							) : (
 								<form action={checkout}>

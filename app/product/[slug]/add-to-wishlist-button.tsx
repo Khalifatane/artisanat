@@ -24,7 +24,7 @@ export function AddToWishlistButton({ product }: { product: WishlistProduct }) {
 				event.stopPropagation();
 				return exists ? removeFromWishlist(product.id) : addToWishlist(product);
 			}}
-			aria-label={exists ? "Remove from Wishlist" : "Add to Wishlist"}
+			aria-label={exists ? "Retirer de la liste de souhaits" : "Ajouter à la liste de souhaits"}
 			className="rounded-full bg-background/90 backdrop-blur p-2 shadow-md transition hover:shadow-lg"
 		>
 			<Heart

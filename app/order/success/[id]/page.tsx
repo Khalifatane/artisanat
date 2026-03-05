@@ -87,7 +87,7 @@ const OrderDetails = async ({ params }: { params: Promise<{ id: string }> }) => 
 				{/* Order Summary */}
 				<div className="bg-secondary/30 px-6 py-4 space-y-2">
 					<div className="flex items-center justify-between text-sm">
-						<span className="text-muted-foreground">Subtotal</span>
+						<span className="text-muted-foreground">Sous-total</span>
 						<span>{formatMoney({ amount: subtotal, currency: CURRENCY, locale: LOCALE })}</span>
 					</div>
 					{/* Shipping is handled externally in this flow */}
@@ -100,11 +100,11 @@ const OrderDetails = async ({ params }: { params: Promise<{ id: string }> }) => 
 
 			{/* Shipping Address is handled externally in this flow */}
 
-			{/* Continue Shopping Button */}
+			{/* Continuer vos achats Button */}
 			<div className="mt-8 text-center">
 				<Button asChild>
 					<YnsLink prefetch="eager" href="/">
-						Continue Shopping
+						Continuer vos achats
 					</YnsLink>
 				</Button>
 			</div>

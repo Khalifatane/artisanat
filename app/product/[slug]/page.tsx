@@ -73,7 +73,7 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 						{product.summary && <p className="text-muted-foreground leading-relaxed">{product.summary}</p>}
 					</div>
 
-					{/* Variant Selector, Quantity, Add to Cart, Trust Badges */}
+					{/* Variant Selector, Quantity, Ajouter au panier, Trust Badges */}
 					<AddToCartButton
 						variants={product.variants}
 						product={{

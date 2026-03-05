@@ -17,8 +17,8 @@ type ProductGridProps = {
 };
 
 export async function ProductGrid({
-	title = "Featured Products",
-	description = "Handpicked favorites from our collection",
+	title = "Produits en vedette",
+	description = "Coups de cœur sélectionnés dans notre collection",
 	products,
 	limit = 6,
 	showViewAll = true,
@@ -39,7 +39,7 @@ export async function ProductGrid({
 						href={viewAllHref}
 						className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
 					>
-						View all
+						Voir tout
 						<ArrowRight className="h-4 w-4" />
 					</YnsLink>
 				)}
@@ -117,7 +117,7 @@ export async function ProductGrid({
 								<h3 className="text-base font-medium text-foreground">{product.name}</h3>
 								<p className="text-base font-semibold text-foreground">{priceDisplay}</p>
 								<p className="text-xs text-muted-foreground">
-									Rating {rating} ({reviewCount})
+									Note {rating} ({reviewCount})
 								</p>
 							</div>
 						</YnsLink>
@@ -132,7 +132,7 @@ export async function ProductGrid({
 						href={viewAllHref}
 						className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
 					>
-						View all products
+						Voir tous les produits
 						<ArrowRight className="h-4 w-4" />
 					</YnsLink>
 				</div>

@@ -31,7 +31,7 @@ export default function Home() {
 		<main>
 			<Hero />
 			<Suspense fallback={<ProductGridSkeleton />}>
-				<ProductGrid title="Featured Products" limit={6} />
+				<ProductGrid title="Produits en vedette" limit={6} />
 			</Suspense>
 		</main>
 	);

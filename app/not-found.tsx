@@ -17,7 +17,7 @@ export default function NotFound() {
 				href="/"
 				className="mt-8 inline-flex items-center rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
 			>
-				Continue Shopping
+				Continuer vos achats
 			</YnsLink>
 		</div>
 	);

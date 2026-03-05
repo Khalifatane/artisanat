@@ -13,15 +13,15 @@ export default function WishlistPage() {
 	if (items.length === 0) {
 		return (
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-				<h1 className="text-2xl font-semibold mb-2">My Wishlist</h1>
-				<p className="text-muted-foreground">Your saved products will appear here.</p>
+				<h1 className="text-2xl font-semibold mb-2">Ma liste de souhaits</h1>
+				<p className="text-muted-foreground">Vos produits enregistrés apparaîtront ici.</p>
 			</div>
 		);
 	}
 
 	return (
 		<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-			<h1 className="text-2xl font-semibold mb-6">My Wishlist</h1>
+			<h1 className="text-2xl font-semibold mb-6">Ma liste de souhaits</h1>
 			<div className="space-y-4">
 				{items.map((item) => (
 					<div key={item.id} className="flex items-center gap-4 border border-border rounded-lg p-4">
@@ -52,7 +52,7 @@ export default function WishlistPage() {
 							type="button"
 							onClick={() => removeFromWishlist(item.id)}
 							className="p-2 text-muted-foreground hover:text-foreground"
-							aria-label="Remove from Wishlist"
+							aria-label="Retirer de la liste de souhaits"
 						>
 							<X className="h-4 w-4" />
 						</button>

@@ -15,7 +15,7 @@ export function WishlistTrigger() {
 				type="button"
 				onClick={() => setOpen(true)}
 				className="relative p-2 text-muted-foreground hover:text-red-500 transition-colors"
-				aria-label="Open Wishlist"
+				aria-label="Ouvrir la liste de souhaits"
 			>
 				<Heart className="w-6 h-6" />
 				{items.length > 0 && (
