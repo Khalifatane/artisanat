@@ -40,6 +40,7 @@
 		"@radix-ui/react-tooltip": "1.2.8",
 		"@sanity/client": "7.8.2",
 		"@sanity/image-url": "1.1.0",
+		"@sanity/vision": "^5.13.0",
 		"@tailwindcss/typography": "^0.5.19",
 		"@typescript/native-preview": "7.0.0-dev.20260206.1",
 		"class-variance-authority": "0.7.1",
