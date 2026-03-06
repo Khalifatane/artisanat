@@ -293,10 +293,10 @@ function ChartLegendContent({
               {itemConfig?.icon && !hideIcon ? (
                 <itemConfig.icon />
               ) : (
-                <div
+                  <div
                   className="h-2 w-2 shrink-0 rounded-[2px]"
                   style={{
-                    backgroundCouleur: item.color,
+                    backgroundColor: item.color,
                   }}
                 />
               )}
