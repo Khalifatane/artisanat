@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import type { ProductVariant } from "@/lib/commerce";
 
-type Selection = {
+export type Selection = {
 	size?: string;
 	color?: string;
 };

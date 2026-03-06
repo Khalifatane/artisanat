@@ -9,9 +9,7 @@ const nextConfig = {
 			},
 		],
 	},
-	experimental: {
-		cacheComponents: true,
-	},
+	cacheComponents: true,
 	turbopack: {
 		root: __dirname,
 	},

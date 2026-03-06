@@ -5,7 +5,7 @@ import { addToCart } from "@/app/cart/actions";
 import { useCart } from "@/app/cart/cart-context";
 import { QuantitySelector } from "@/app/product/[slug]/quantity-selector";
 import { TrustBadges } from "@/app/product/[slug]/trust-badges";
-import { VariantSelector } from "@/app/product/[slug]/variant-selector";
+import { VariantSelector, type Selection } from "@/app/product/[slug]/variant-selector";
 import { CURRENCY, LOCALE } from "@/lib/constants";
 import type { ProductVariant } from "@/lib/commerce";
 import { formatMoney } from "@/lib/money";
@@ -22,9 +22,9 @@ type AddToCartButtonProps = {
 
 export function AddToCartButton({ variants, product }: AddToCartButtonProps) {
 	const firstVariant = variants.find((variant) => variant.stock > 0) ?? variants[0];
-	const [selection, setSelection] = useState(() => ({
-		size: firstVariant?.size ?? "",
-		color: firstVariant?.color ?? "",
+	const [selection, setSelection] = useState<Selection>(() => ({
+		size: firstVariant?.size,
+		color: firstVariant?.color,
 	}));
 	const [quantity, setQuantity] = useState(1);
 	const [isPending, startTransition] = useTransition();
