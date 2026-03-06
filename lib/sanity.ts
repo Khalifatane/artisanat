@@ -7,7 +7,10 @@ import { invariant } from "@/lib/invariant";
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION ?? "2024-02-01";
-const token = process.env.SANITY_READ_TOKEN ?? process.env.NEXT_PUBLIC_SANITY_TOKEN;
+const token =
+	process.env.SANITY_READ_TOKEN ??
+	process.env.SANITY_API_TOKEN ??
+	process.env.NEXT_PUBLIC_SANITY_TOKEN;
 
 invariant(projectId, "Missing NEXT_PUBLIC_SANITY_PROJECT_ID");
 invariant(dataset, "Missing NEXT_PUBLIC_SANITY_DATASET");
