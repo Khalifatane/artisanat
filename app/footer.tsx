@@ -63,6 +63,13 @@ async function FooterLegalPages() {
 }
 
 export function Footer() {
+	const informationLinks = [
+		{ label: "Présentation de l’entreprise", href: "/legal/presentation-de-l-entreprise" },
+		{ label: "Politique de confidentialité", href: "/legal/politique-de-confidentialite" },
+		{ label: "Modes de paiement", href: "/legal/modes-de-paiement" },
+		{ label: "Livraison et retours", href: "/legal/livraison-et-retours" },
+	];
+
 	return (
 		<footer className="border-t border-border bg-background">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,6 +89,24 @@ export function Footer() {
 
 					{/* Legal */}
 					<FooterLegalPages />
+
+					{/* Informations */}
+					<div>
+						<h3 className="text-sm font-semibold text-foreground">Informations</h3>
+						<ul className="mt-4 space-y-3">
+							{informationLinks.map((link) => (
+								<li key={link.href}>
+									<YnsLink
+										prefetch={"eager"}
+										href={link.href}
+										className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+									>
+										{link.label}
+									</YnsLink>
+								</li>
+							))}
+						</ul>
+					</div>
 				</div>
 
 				{/* Bottom bar */}
