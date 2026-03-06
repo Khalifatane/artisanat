@@ -44,7 +44,9 @@ export function CheckoutClient() {
 	const buildWhatsAppUrl = (message: string) => {
 		if (!ownerWhatsApp) return null;
 		const encoded = encodeURIComponent(message);
-		return `https://wa.me/${ownerWhatsApp.replace("whatsapp:", "")}?text=${encoded}`;
+		const cleaned = ownerWhatsApp.replace("whatsapp:", "").replace(/\D/g, "");
+		if (!cleaned) return null;
+		return `https://wa.me/${cleaned}?text=${encoded}`;
 	};
 
 	const buildOrderMessage = (options: { paid: boolean; reference?: string }) => {
@@ -76,7 +78,10 @@ export function CheckoutClient() {
 	const handleWhatsAppRedirect = (options: { paid: boolean; reference?: string }) => {
 		const url = buildWhatsAppUrl(buildOrderMessage(options));
 		if (url) {
-			window.open(url, "_blank", "noopener,noreferrer");
+			const opened = window.open(url, "_blank", "noopener,noreferrer");
+			if (!opened) {
+				window.location.href = url;
+			}
 		} else {
 			alert("WhatsApp number is missing.");
 		}

@@ -7,7 +7,6 @@ import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
 import { getOrder, updateOrderStatus } from "@/lib/orders";
 import { verifyPaystackTransaction } from "@/lib/paystack";
-import { sendOrderNotification } from "@/lib/whatsapp";
 import { YNSImage } from "@/lib/yns-image";
 
 export default async function OrderSuccessPage(props: { params: Promise<{ id: string }> }) {
@@ -32,11 +31,6 @@ const OrderDetails = async ({ params }: { params: Promise<{ id: string }> }) => 
 			const verified = verification.status && verification.data?.status === "success";
 			if (verified) {
 				currentOrder = (await updateOrderStatus(order.id, "paid")) ?? order;
-				try {
-					await sendOrderNotification(currentOrder);
-				} catch {
-					// Notification failures should not block success page
-				}
 			}
 		} catch {
 			// Ignore verification errors to allow page render
